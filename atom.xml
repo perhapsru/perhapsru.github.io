@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-05-20T18:06:54.144Z</updated>
+  <updated>2017-05-20T18:53:08.706Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,13 +16,43 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>留言栏</title>
+    <title></title>
     <link href="http://yoursite.com/2017/05/21/%E7%95%99%E8%A8%80%E6%A0%8F/"/>
     <id>http://yoursite.com/2017/05/21/留言栏/</id>
-    <published>2017-05-20T18:06:54.000Z</published>
-    <updated>2017-05-20T18:06:54.144Z</updated>
+    <published>2017-05-20T18:06:54.144Z</published>
+    <updated>2017-05-20T18:53:08.706Z</updated>
+    
+    <content type="html"><![CDATA[<p>#留言栏</p>
+<hr>
+<p>##基本功能：</p>
+<ul>
+<li>刷新获取网络数据，并用listview显示出来</li>
+<li>点击按钮跳转到发送页面</li>
+<li>在发送页面编辑文本上传</li>
+<li>上传之后的数据，在获取列表中显示<br>##基本步骤：</li>
+<li>在下拉刷新区内，创建请求队列</li>
+<li>创建字符请求对象</li>
+<li>把请求对象加入到请求队列中</li>
+</ul>
+<blockquote>
+<p> 由于UI线程不安全，所以不能直接在responselistener中向主界面传入数据，所以设置消息传送handler，用来从子线程向UI线程传送数据</p>
+</blockquote>
+<p><code>Message message=handler.obtainMessage();
+                                                               message.what=1;
+                       message.obj=response;
+                       handler.sendMessage(message);</code></p>
+]]></content>
     
     <summary type="html">
+    
+      &lt;p&gt;#留言栏&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;##基本功能：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;刷新获取网络数据，并用listview显示出来&lt;/li&gt;
+&lt;li&gt;点击按钮跳转到发送页面&lt;/li&gt;
+&lt;li&gt;在发送页面编辑文本上传&lt;/li&gt;
+&lt;li&gt;上传之后的数据，在获取列表中显示&lt;br&gt;##基本
     
     </summary>
     

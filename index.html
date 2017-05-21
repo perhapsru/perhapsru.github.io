@@ -275,7 +275,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/05/21/留言栏/" itemprop="url">留言栏</a></h1>
+                <a class="post-title-link" href="/2017/05/21/留言栏/" itemprop="url">未命名</a></h1>
         
 
         <div class="post-meta">
@@ -324,7 +324,26 @@
       
         
           
-            
+            <p>#留言栏</p>
+<hr>
+<p>##基本功能：</p>
+<ul>
+<li>刷新获取网络数据，并用listview显示出来</li>
+<li>点击按钮跳转到发送页面</li>
+<li>在发送页面编辑文本上传</li>
+<li>上传之后的数据，在获取列表中显示<br>##基本步骤：</li>
+<li>在下拉刷新区内，创建请求队列</li>
+<li>创建字符请求对象</li>
+<li>把请求对象加入到请求队列中</li>
+</ul>
+<blockquote>
+<p> 由于UI线程不安全，所以不能直接在responselistener中向主界面传入数据，所以设置消息传送handler，用来从子线程向UI线程传送数据</p>
+</blockquote>
+<p><code>Message message=handler.obtainMessage();
+                                                               message.what=1;
+                       message.obj=response;
+                       handler.sendMessage(message);</code></p>
+
           
         
       
