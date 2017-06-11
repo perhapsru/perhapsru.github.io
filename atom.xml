@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>技术改变世界</title>
-  <subtitle>慢慢改变自己，不断进步</subtitle>
+  <title>Hexo</title>
+  
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://w.unfamous.cn/"/>
