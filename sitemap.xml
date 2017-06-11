@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://w.unfamous.cn/about/index.html</loc>
+    
+    <lastmod>2017-06-11T18:16:52.336Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://w.unfamous.cn/categories/index.html</loc>
     
     <lastmod>2017-06-11T17:09:21.652Z</lastmod>
@@ -16,14 +23,7 @@
   </url>
   
   <url>
-    <loc>http://w.unfamous.cn/about/index.html</loc>
-    
-    <lastmod>2017-06-11T16:55:03.164Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://w.unfamous.cn/2017/06/12/swiperefreshlayout%E3%80%81Picasso%E3%80%81popupwindow%E5%A4%8D%E4%B9%A0/</loc>
+    <loc>http://w.unfamous.cn/2017/06/12/%E5%A4%8D%E4%B9%A01/</loc>
     
     <lastmod>2017-05-29T09:44:51.539Z</lastmod>
     
