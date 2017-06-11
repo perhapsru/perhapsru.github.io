@@ -92,15 +92,16 @@
 
 
 
-<meta name="description" content="Where there is a will, there is a way">
-<meta property="og:type" content="website">
+<meta name="description" content="swiperefreshlayout 下拉刷新 swipe.setBackgroundColor(000000);//设置背景颜色 swipe.setColorSchemeResources(android.R.color.darker_gray);//设置旋转颜色 swipe.setOnRefreshListener//设置监听事件 swipe.setRefreshing(false);//设置">
+<meta property="og:type" content="article">
 <meta property="og:title" content="技术改变世界">
-<meta property="og:url" content="http://w.unfamous.cn/index.html">
+<meta property="og:url" content="http://w.unfamous.cn/2017/06/12/swiperefreshlayout、Picasso、popupwindow复习/index.html">
 <meta property="og:site_name" content="技术改变世界">
-<meta property="og:description" content="Where there is a will, there is a way">
+<meta property="og:description" content="swiperefreshlayout 下拉刷新 swipe.setBackgroundColor(000000);//设置背景颜色 swipe.setColorSchemeResources(android.R.color.darker_gray);//设置旋转颜色 swipe.setOnRefreshListener//设置监听事件 swipe.setRefreshing(false);//设置">
+<meta property="og:updated_time" content="2017-05-29T09:44:51.539Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="技术改变世界">
-<meta name="twitter:description" content="Where there is a will, there is a way">
+<meta name="twitter:description" content="swiperefreshlayout 下拉刷新 swipe.setBackgroundColor(000000);//设置背景颜色 swipe.setColorSchemeResources(android.R.color.darker_gray);//设置旋转颜色 swipe.setOnRefreshListener//设置监听事件 swipe.setRefreshing(false);//设置">
 
 
 
@@ -128,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://w.unfamous.cn/"/>
+  <link rel="canonical" href="http://w.unfamous.cn/2017/06/12/swiperefreshlayout、Picasso、popupwindow复习/"/>
 
 
 
 
 
-  <title>技术改变世界</title>
+  <title> | 技术改变世界</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -160,9 +161,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -265,9 +264,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -293,9 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/12/swiperefreshlayout、Picasso、popupwindow复习/" itemprop="url">未命名</a></h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -342,9 +339,7 @@
       
 
       
-        
-          
-            <h2 id="swiperefreshlayout"><a href="#swiperefreshlayout" class="headerlink" title="swiperefreshlayout"></a>swiperefreshlayout</h2><ul>
+        <h2 id="swiperefreshlayout"><a href="#swiperefreshlayout" class="headerlink" title="swiperefreshlayout"></a>swiperefreshlayout</h2><ul>
 <li>下拉刷新</li>
 <li>swipe.setBackgroundColor(000000);//设置背景颜色</li>
 <li>swipe.setColorSchemeResources(android.R.color.darker_gray);//设置旋转颜色</li>
@@ -362,20 +357,27 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">mPopupWindow = new PopupWindow(popupView, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, true);</div><div class="line">mPopupWindow.setTouchable(true);</div><div class="line">mPopupWindow.setOutsideTouchable(true);</div><div class="line">//mPopupWindow.setBackgroundDrawable(new BitmapDrawable(getResources(), (Bitmap) null));</div><div class="line">mButton = (Button) findViewById(R.id.popbt);</div><div class="line">mButton.setOnClickListener(new View.OnClickListener() &#123;</div><div class="line">    @Override</div><div class="line">    public void onClick(View view) &#123;</div><div class="line">        mPopupWindow.showAsDropDown(view);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
@@ -383,21 +385,22 @@
       
 
       
-
+        
       
 
       
+
       
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -405,6 +408,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -424,8 +431,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.png"
@@ -487,6 +503,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#swiperefreshlayout"><span class="nav-number">1.</span> <span class="nav-text">swiperefreshlayout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Picasso"><span class="nav-number">2.</span> <span class="nav-text">Picasso</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#popupwindow"><span class="nav-number">3.</span> <span class="nav-text">popupwindow</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -612,6 +644,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
 
   
 

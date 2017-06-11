@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://w.unfamous.cn/"/>
-  <updated>2017-05-20T18:53:08.706Z</updated>
+  <updated>2017-05-29T09:44:51.539Z</updated>
   <id>http://w.unfamous.cn/</id>
   
   <author>
@@ -17,69 +17,34 @@
   
   <entry>
     <title></title>
-    <link href="http://w.unfamous.cn/2017/05/21/%E7%95%99%E8%A8%80%E6%A0%8F/"/>
-    <id>http://w.unfamous.cn/2017/05/21/留言栏/</id>
-    <published>2017-05-20T18:06:54.144Z</published>
-    <updated>2017-05-20T18:53:08.706Z</updated>
+    <link href="http://w.unfamous.cn/2017/06/12/swiperefreshlayout%E3%80%81Picasso%E3%80%81popupwindow%E5%A4%8D%E4%B9%A0/"/>
+    <id>http://w.unfamous.cn/2017/06/12/swiperefreshlayout、Picasso、popupwindow复习/</id>
+    <published>2017-06-11T18:03:07.463Z</published>
+    <updated>2017-05-29T09:44:51.539Z</updated>
     
-    <content type="html"><![CDATA[<p>#留言栏</p>
-<hr>
-<p>##基本功能：</p>
-<ul>
-<li>刷新获取网络数据，并用listview显示出来</li>
-<li>点击按钮跳转到发送页面</li>
-<li>在发送页面编辑文本上传</li>
-<li>上传之后的数据，在获取列表中显示<br>##基本步骤：</li>
-<li>在下拉刷新区内，创建请求队列</li>
-<li>创建字符请求对象</li>
-<li>把请求对象加入到请求队列中</li>
+    <content type="html"><![CDATA[<h2 id="swiperefreshlayout"><a href="#swiperefreshlayout" class="headerlink" title="swiperefreshlayout"></a>swiperefreshlayout</h2><ul>
+<li>下拉刷新</li>
+<li>swipe.setBackgroundColor(000000);//设置背景颜色</li>
+<li>swipe.setColorSchemeResources(android.R.color.darker_gray);//设置旋转颜色</li>
+<li>swipe.setOnRefreshListener//设置监听事件</li>
+<li>swipe.setRefreshing(false);//设置刷新后停止<h2 id="Picasso"><a href="#Picasso" class="headerlink" title="Picasso"></a>Picasso</h2></li>
+<li>加载图片</li>
+<li>导包： compile ‘com.squareup.picasso:picasso:2.5.2’</li>
+<li>Picasso.with(MainActivity.this).load(“URL 图片链接”).into(image);<h2 id="popupwindow"><a href="#popupwindow" class="headerlink" title="popupwindow"></a>popupwindow</h2></li>
+<li><p>showpopupwindow();//显示popupwindow界面，简化代码，在外面写函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">private  void showpopupwindow()&#123;//在此处定义popupwindow的实体</div><div class="line">       //设置contentView 显示内容     layoutinflater的用法</div><div class="line">       View contentView= LayoutInflater.</div><div class="line">               from(MainActivity.this).inflate(R.layout.popuplayout,null);</div><div class="line">               //把popupwindow的视图转到当前视图上</div><div class="line">       popupWindow = new PopupWindow(contentView,</div><div class="line">               LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, true);</div><div class="line">      // popupWindow=new PopupWindow(contentView, LAYOUT_INFLATER_SERVICE, LayoutParams.WRAP_CONTENT,true);</div><div class="line">       //public PopupWindow(View contentView, int width, int height, boolean focusable)</div><div class="line">       popupWindow.setContentView(contentView);//设置响应,绑定文本和点击事件</div><div class="line">       init();</div><div class="line">       one.setOnClickListener(this);</div><div class="line">       three.setOnClickListener(this);</div><div class="line">       four.setOnClickListener(this);</div><div class="line">       //显示popupwindow</div><div class="line">       View rootview=LayoutInflater.from(MainActivity.this).inflate(R.layout.activity_main,null);</div><div class="line">       popupWindow.showAtLocation(rootview, Gravity.BOTTOM,0,0);</div><div class="line">       //public void showAtLocation(View parent, int gravity, int x, int y)</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>在另一个activity里面写点击之后的视图</p>
+</li>
+<li>View popupView = getLayoutInflater().inflate(R.layout.popuplayout, null);</li>
 </ul>
-<blockquote>
-<p> 由于UI线程不安全，所以不能直接在responselistener中向主界面传入数据，所以设置消息传送handler，用来从子线程向UI线程传送数据</p>
-</blockquote>
-<p><code>Message message=handler.obtainMessage();
-                                                               message.what=1;
-                       message.obj=response;
-                       handler.sendMessage(message);</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">mPopupWindow = new PopupWindow(popupView, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, true);</div><div class="line">mPopupWindow.setTouchable(true);</div><div class="line">mPopupWindow.setOutsideTouchable(true);</div><div class="line">//mPopupWindow.setBackgroundDrawable(new BitmapDrawable(getResources(), (Bitmap) null));</div><div class="line">mButton = (Button) findViewById(R.id.popbt);</div><div class="line">mButton.setOnClickListener(new View.OnClickListener() &#123;</div><div class="line">    @Override</div><div class="line">    public void onClick(View view) &#123;</div><div class="line">        mPopupWindow.showAsDropDown(view);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;#留言栏&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;##基本功能：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;刷新获取网络数据，并用listview显示出来&lt;/li&gt;
-&lt;li&gt;点击按钮跳转到发送页面&lt;/li&gt;
-&lt;li&gt;在发送页面编辑文本上传&lt;/li&gt;
-&lt;li&gt;上传之后的数据，在获取列表中显示&lt;br&gt;##基本
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://w.unfamous.cn/2017/05/20/hello-world/"/>
-    <id>http://w.unfamous.cn/2017/05/20/hello-world/</id>
-    <published>2017-05-20T14:42:18.118Z</published>
-    <updated>2017-05-20T14:42:18.118Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      &lt;h2 id=&quot;swiperefreshlayout&quot;&gt;&lt;a href=&quot;#swiperefreshlayout&quot; class=&quot;headerlink&quot; title=&quot;swiperefreshlayout&quot;&gt;&lt;/a&gt;swiperefreshlayout&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
     
     </summary>
     
