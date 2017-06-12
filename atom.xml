@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://w.unfamous.cn/"/>
-  <updated>2017-06-12T16:06:12.257Z</updated>
+  <updated>2017-06-12T16:11:32.091Z</updated>
   <id>http://w.unfamous.cn/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://w.unfamous.cn/2017/06/12/%E5%85%B3%E4%BA%8E%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
     <id>http://w.unfamous.cn/2017/06/12/关于命令行/</id>
     <published>2017-06-12T04:50:30.000Z</published>
-    <updated>2017-06-12T16:06:12.257Z</updated>
+    <updated>2017-06-12T16:11:32.091Z</updated>
     
     <content type="html"><![CDATA[<h2 id="win10右击没有新建，没有gitbash"><a href="#win10右击没有新建，没有gitbash" class="headerlink" title="win10右击没有新建，没有gitbash"></a>win10右击没有新建，没有gitbash</h2><h3 id="问题引入：在搭建博客的时候发现右击突然没有“新建”文件夹了，也没有“gitbash”命令行，天哪好可怕，我坚决不想一遍一遍的使用命令行cd到对应的文件夹，再用md命令创建，那真的简直不要再心塞…"><a href="#问题引入：在搭建博客的时候发现右击突然没有“新建”文件夹了，也没有“gitbash”命令行，天哪好可怕，我坚决不想一遍一遍的使用命令行cd到对应的文件夹，再用md命令创建，那真的简直不要再心塞…" class="headerlink" title="问题引入：在搭建博客的时候发现右击突然没有“新建”文件夹了，也没有“gitbash”命令行，天哪好可怕，我坚决不想一遍一遍的使用命令行cd到对应的文件夹，再用md命令创建，那真的简直不要再心塞…"></a>问题引入：在搭建博客的时候发现右击突然没有“新建”文件夹了，也没有“gitbash”命令行，天哪好可怕，我坚决不想一遍一遍的使用命令行cd到对应的文件夹，再用md命令创建，那真的简直不要再心塞…</h3><h3 id="问题解决：修改注册表。"><a href="#问题解决：修改注册表。" class="headerlink" title="问题解决：修改注册表。"></a>问题解决：修改注册表。</h3><h3 id="基本步骤："><a href="#基本步骤：" class="headerlink" title="基本步骤："></a>基本步骤：</h3><h4 id="1-添加新建"><a href="#1-添加新建" class="headerlink" title="1.添加新建"></a>1.添加新建</h4><ul>
 <li>Windows + R 打开命令行：cmd regedit<br><img src="http://orfjxkwsz.bkt.clouddn.com/1%20.png" alt="image"></li>
@@ -54,14 +54,16 @@
     </summary>
     
     
+      <category term="tips" scheme="http://w.unfamous.cn/tags/tips/"/>
+    
   </entry>
   
   <entry>
-    <title></title>
-    <link href="http://w.unfamous.cn/2017/06/12/%E5%A4%8D%E4%B9%A01/"/>
-    <id>http://w.unfamous.cn/2017/06/12/复习1/</id>
-    <published>2017-06-11T18:03:07.463Z</published>
-    <updated>2017-05-29T09:44:51.539Z</updated>
+    <title>复习一</title>
+    <link href="http://w.unfamous.cn/2017/06/12/%E5%A4%8D%E4%B9%A0%E4%B8%80/"/>
+    <id>http://w.unfamous.cn/2017/06/12/复习一/</id>
+    <published>2017-06-12T03:09:09.000Z</published>
+    <updated>2017-06-12T16:11:38.453Z</updated>
     
     <content type="html"><![CDATA[<h2 id="swiperefreshlayout"><a href="#swiperefreshlayout" class="headerlink" title="swiperefreshlayout"></a>swiperefreshlayout</h2><ul>
 <li>下拉刷新</li>
@@ -89,6 +91,8 @@
     
     </summary>
     
+    
+      <category term="Android" scheme="http://w.unfamous.cn/tags/Android/"/>
     
   </entry>
   
