@@ -7,19 +7,21 @@
   
   
   
-  <title>复习一 | Hexo</title>
+  <title>ListView之BaseAdapter总结 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="swiperefreshlayout 下拉刷新 swipe.setBackgroundColor(000000);//设置背景颜色 swipe.setColorSchemeResources(android.R.color.darker_gray);//设置旋转颜色 swipe.setOnRefreshListener//设置监听事件 swipe.setRefreshing(false);//设置">
+  <meta name="description" content="总结listview适配器Baseadapter先吐槽一下自己，真真个可怕呀，说要学会listview结果半个月了，才…. ####Baseadapter基本介绍  listview需要把数据和视图结合在一起，Baseadapter便于重写 为了有效的利用到视图convertview的视图缓存机制，减少频繁调用findViewById，使用ViewHolder绑定数据而使用到setTag方法 重写">
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
-<meta property="og:title" content="复习一">
-<meta property="og:url" content="http://w.unfamous.cn/2017/06/12/复习一/index.html">
+<meta property="og:title" content="ListView之BaseAdapter总结">
+<meta property="og:url" content="http://w.unfamous.cn/2017/06/13/ListView之BaseAdapter总结/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="swiperefreshlayout 下拉刷新 swipe.setBackgroundColor(000000);//设置背景颜色 swipe.setColorSchemeResources(android.R.color.darker_gray);//设置旋转颜色 swipe.setOnRefreshListener//设置监听事件 swipe.setRefreshing(false);//设置">
-<meta property="og:updated_time" content="2017-06-12T16:11:38.453Z">
+<meta property="og:description" content="总结listview适配器Baseadapter先吐槽一下自己，真真个可怕呀，说要学会listview结果半个月了，才…. ####Baseadapter基本介绍  listview需要把数据和视图结合在一起，Baseadapter便于重写 为了有效的利用到视图convertview的视图缓存机制，减少频繁调用findViewById，使用ViewHolder绑定数据而使用到setTag方法 重写">
+<meta property="og:image" content="http://orfjxkwsz.bkt.clouddn.com/%E5%91%9C%E5%91%9C%E5%91%9C.jpg">
+<meta property="og:updated_time" content="2017-06-13T10:22:39.275Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="复习一">
-<meta name="twitter:description" content="swiperefreshlayout 下拉刷新 swipe.setBackgroundColor(000000);//设置背景颜色 swipe.setColorSchemeResources(android.R.color.darker_gray);//设置旋转颜色 swipe.setOnRefreshListener//设置监听事件 swipe.setRefreshing(false);//设置">
+<meta name="twitter:title" content="ListView之BaseAdapter总结">
+<meta name="twitter:description" content="总结listview适配器Baseadapter先吐槽一下自己，真真个可怕呀，说要学会listview结果半个月了，才…. ####Baseadapter基本介绍  listview需要把数据和视图结合在一起，Baseadapter便于重写 为了有效的利用到视图convertview的视图缓存机制，减少频繁调用findViewById，使用ViewHolder绑定数据而使用到setTag方法 重写">
+<meta name="twitter:image" content="http://orfjxkwsz.bkt.clouddn.com/%E5%91%9C%E5%91%9C%E5%91%9C.jpg">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -239,11 +241,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-复习一" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-ListView之BaseAdapter总结" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2017/06/12/复习一/" class="article-date">
-      <time datetime="2017-06-12T03:09:09.000Z" itemprop="datePublished">2017-06-12</time>
+      <a  href="/2017/06/13/ListView之BaseAdapter总结/" class="article-date">
+      <time datetime="2017-06-13T07:21:06.000Z" itemprop="datePublished">2017-06-13</time>
 </a>
 
     </div>
@@ -257,7 +259,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      复习一
+      ListView之BaseAdapter总结
     </h1>
   
 
@@ -279,23 +281,23 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="swiperefreshlayout"><a href="#swiperefreshlayout" class="headerlink" title="swiperefreshlayout"></a>swiperefreshlayout</h2><ul>
-<li>下拉刷新</li>
-<li>swipe.setBackgroundColor(000000);//设置背景颜色</li>
-<li>swipe.setColorSchemeResources(android.R.color.darker_gray);//设置旋转颜色</li>
-<li>swipe.setOnRefreshListener//设置监听事件</li>
-<li>swipe.setRefreshing(false);//设置刷新后停止<h2 id="Picasso"><a href="#Picasso" class="headerlink" title="Picasso"></a>Picasso</h2></li>
-<li>加载图片</li>
-<li>导包： compile ‘com.squareup.picasso:picasso:2.5.2’</li>
-<li>Picasso.with(MainActivity.this).load(“URL 图片链接”).into(image);<h2 id="popupwindow"><a href="#popupwindow" class="headerlink" title="popupwindow"></a>popupwindow</h2></li>
-<li><p>showpopupwindow();//显示popupwindow界面，简化代码，在外面写函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">private  void showpopupwindow()&#123;//在此处定义popupwindow的实体</div><div class="line">       //设置contentView 显示内容     layoutinflater的用法</div><div class="line">       View contentView= LayoutInflater.</div><div class="line">               from(MainActivity.this).inflate(R.layout.popuplayout,null);</div><div class="line">               //把popupwindow的视图转到当前视图上</div><div class="line">       popupWindow = new PopupWindow(contentView,</div><div class="line">               LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, true);</div><div class="line">      // popupWindow=new PopupWindow(contentView, LAYOUT_INFLATER_SERVICE, LayoutParams.WRAP_CONTENT,true);</div><div class="line">       //public PopupWindow(View contentView, int width, int height, boolean focusable)</div><div class="line">       popupWindow.setContentView(contentView);//设置响应,绑定文本和点击事件</div><div class="line">       init();</div><div class="line">       one.setOnClickListener(this);</div><div class="line">       three.setOnClickListener(this);</div><div class="line">       four.setOnClickListener(this);</div><div class="line">       //显示popupwindow</div><div class="line">       View rootview=LayoutInflater.from(MainActivity.this).inflate(R.layout.activity_main,null);</div><div class="line">       popupWindow.showAtLocation(rootview, Gravity.BOTTOM,0,0);</div><div class="line">       //public void showAtLocation(View parent, int gravity, int x, int y)</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+        <h2 id="总结listview适配器Baseadapter"><a href="#总结listview适配器Baseadapter" class="headerlink" title="总结listview适配器Baseadapter"></a>总结listview适配器Baseadapter</h2><p>先吐槽一下自己，真真个可怕呀，说要学会listview结果半个月了，才….</p>
+<p>####Baseadapter基本介绍</p>
+<ul>
+<li>listview需要把数据和视图结合在一起，Baseadapter便于重写</li>
+<li>为了有效的利用到视图convertview的视图缓存机制，减少频繁调用findViewById，使用ViewHolder绑定数据而使用到setTag方法</li>
+<li>重写方法：getCount(列表中多少行),getItem(位置上的对象),getItemId(位置行号),getView(每行的内容)<h4 id="基本步骤："><a href="#基本步骤：" class="headerlink" title="基本步骤："></a>基本步骤：</h4>设置布局–设置适配器–设置数据源–加载适配器</li>
+<li>tips:列表控件封装到Itemtips类里面，构造函数</li>
+<li>viewholder static类，适配器绑定数据源，根据上下文加载布局</li>
+<li>getView的写法:添加viewhoder、判断convertview是否空：是，LayoutInflater绑定Item视图，holder添加控件id，setTag；不是空，获取缓存标签getTag、返回convertview<h4 id="具体代码："><a href="#具体代码：" class="headerlink" title="具体代码："></a>具体代码：</h4>封装Item控件<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">public class ItemTip &#123;</div><div class="line">    public int ItemtipID;</div><div class="line">    public String Itemtitle;</div><div class="line"></div><div class="line">    public ItemTip(int itemtipID, String itemtitle) &#123;</div><div class="line">        Itemtitle = itemtitle;</div><div class="line">        ItemtipID = itemtipID;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
-<li><p>在另一个activity里面写点击之后的视图</p>
-</li>
-<li>View popupView = getLayoutInflater().inflate(R.layout.popuplayout, null);</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">mPopupWindow = new PopupWindow(popupView, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, true);</div><div class="line">mPopupWindow.setTouchable(true);</div><div class="line">mPopupWindow.setOutsideTouchable(true);</div><div class="line">//mPopupWindow.setBackgroundDrawable(new BitmapDrawable(getResources(), (Bitmap) null));</div><div class="line">mButton = (Button) findViewById(R.id.popbt);</div><div class="line">mButton.setOnClickListener(new View.OnClickListener() &#123;</div><div class="line">    @Override</div><div class="line">    public void onClick(View view) &#123;</div><div class="line">        mPopupWindow.showAsDropDown(view);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>MainActivity</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">public class MainActivity extends AppCompatActivity &#123;</div><div class="line">    private ListView listView;</div><div class="line"> @Override</div><div class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">        super.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        listView= (ListView) findViewById(R.id.lv);</div><div class="line">        //创建适配器</div><div class="line">        //创建数据源getdata()，加载适配器</div><div class="line">        List&lt;ItemTip&gt;data=new ArrayList&lt;&gt;();</div><div class="line">        for(int i=0;i&lt;20;i++)&#123;</div><div class="line">            data.add(new ItemTip(R.mipmap.ic_launcher,&quot;this is&quot;+i+&quot;item&quot;));</div><div class="line">        &#125;</div><div class="line">        MyAdapter adapter=new MyAdapter(this,data);</div><div class="line">        //视图加载适配器</div><div class="line">        listView.setAdapter(adapter);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>MyAdapter</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">public class MyAdapter extends BaseAdapter &#123;</div><div class="line">    private Context context;</div><div class="line">    private LayoutInflater inflater=null;</div><div class="line">    private  List&lt;ItemTip&gt;mlist;</div><div class="line">    public MyAdapter(Context context,List&lt;ItemTip&gt;list) &#123; //添加构造函数,绑定数据源</div><div class="line">        mlist=list;</div><div class="line">        this.inflater=LayoutInflater.from(context);//根据上下文加载布局</div><div class="line">   &#125;</div><div class="line">    @Override</div><div class="line">    public int getCount() &#123;</div><div class="line">        return mlist.size();</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public Object getItem(int i) &#123;</div><div class="line">        return mlist.get(i);</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public long getItemId(int i) &#123;</div><div class="line">        return i;</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public View getView(int i, View convertView, ViewGroup viewGroup) &#123;</div><div class="line">        ViewHolder holder;</div><div class="line">        if(convertView==null)&#123;</div><div class="line">        holder=new ViewHolder();</div><div class="line">        convertView=inflater.inflate(R.layout.item,null);</div><div class="line">        holder.title= (TextView) convertView.findViewById(R.id.tv);</div><div class="line">        holder.picture= (ImageView) convertView.findViewById(R.id.iv);</div><div class="line">        convertView.setTag(holder);</div><div class="line">        &#125;else&#123;</div><div class="line">            holder= (ViewHolder) convertView.getTag();//</div><div class="line">        &#125;</div><div class="line">        ItemTip tip=mlist.get(i);</div><div class="line">        holder.picture.setImageResource(tip.ItemtipID);</div><div class="line">        holder.title.setText(tip.Itemtitle);</div><div class="line">        return convertView;</div><div class="line">    &#125;</div><div class="line">   static class ViewHolder&#123;</div><div class="line">        ImageView picture;</div><div class="line">        TextView title;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>效果图<br><img src="http://orfjxkwsz.bkt.clouddn.com/%E5%91%9C%E5%91%9C%E5%91%9C.jpg" alt="这里写图片描述"></p>
+<p>遗留问题：hashmap里的键值对，可否都用模板类代替</p>
 
       
     </div>
@@ -304,13 +306,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a  href="/2017/06/12/复习一/">复习一</a></p>
+        <p><span>本文标题:</span><a  href="/2017/06/13/ListView之BaseAdapter总结/">ListView之BaseAdapter总结</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 perhapsru 的个人博客">perhapsru</a></p>
-        <p><span>发布时间:</span>2017年06月12日 - 11时09分</p>
-        <p><span>最后更新:</span>2017年06月13日 - 00时11分</p>
+        <p><span>发布时间:</span>2017年06月13日 - 15时21分</p>
+        <p><span>最后更新:</span>2017年06月13日 - 18时22分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/06/12/复习一/" title="复习一">http://w.unfamous.cn/2017/06/12/复习一/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://w.unfamous.cn/2017/06/12/复习一/　　作者: perhapsru" title=""></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/06/13/ListView之BaseAdapter总结/" title="ListView之BaseAdapter总结">http://w.unfamous.cn/2017/06/13/ListView之BaseAdapter总结/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://w.unfamous.cn/2017/06/13/ListView之BaseAdapter总结/　　作者: perhapsru" title=""></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -321,15 +323,11 @@
 
 <nav id="article-nav">
   
-    <a  href="/2017/06/12/关于命令行/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          关于命令行
-        
-      </div>
-    </a>
   
+    <a  href="/2017/06/12/关于命令行/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于命令行</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -339,7 +337,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#swiperefreshlayout"><span class="toc-number">1.</span> <span class="toc-text">swiperefreshlayout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Picasso"><span class="toc-number">2.</span> <span class="toc-text">Picasso</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#popupwindow"><span class="toc-number">3.</span> <span class="toc-text">popupwindow</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#总结listview适配器Baseadapter"><span class="toc-number">1.</span> <span class="toc-text">总结listview适配器Baseadapter</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#基本步骤："><span class="toc-number">1.0.1.</span> <span class="toc-text">基本步骤：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#具体代码："><span class="toc-number">1.0.2.</span> <span class="toc-text">具体代码：</span></a></li></ol></li></ol></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -410,13 +408,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2017/06/12/关于命令行/" title="上一篇: 关于命令行">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a  href="/2017/06/12/关于命令行/" title="下一篇: 关于命令行">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
     <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/06/13/ListView之BaseAdapter总结/">ListView之BaseAdapter总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/12/关于命令行/">关于命令行</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/12/复习一/">复习一</a></li></ul>
