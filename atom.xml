@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://w.unfamous.cn/"/>
-  <updated>2017-06-14T11:05:04.220Z</updated>
+  <updated>2017-06-16T14:28:02.098Z</updated>
   <id>http://w.unfamous.cn/</id>
   
   <author>
@@ -14,6 +14,72 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>异步任务AsyncTask</title>
+    <link href="http://w.unfamous.cn/2017/06/16/%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1AsyncTask/"/>
+    <id>http://w.unfamous.cn/2017/06/16/异步任务AsyncTask/</id>
+    <published>2017-06-16T14:25:46.000Z</published>
+    <updated>2017-06-16T14:28:02.098Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="利用AsncTask可以实现异步任务"><a href="#利用AsncTask可以实现异步任务" class="headerlink" title="利用AsncTask可以实现异步任务"></a>利用AsncTask可以实现异步任务</h2><h3 id="问题引入："><a href="#问题引入：" class="headerlink" title="问题引入："></a>问题引入：</h3><p>Android是单线程模型，要把耗时操作放到非主线程中执行<br>线程,线程池可以来实现，现用一个封装好的异步操作AsyncTask来简化实现异步任务。</p>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><ol>
+<li>子类参数(泛型）：</li>
+</ol>
+<ul>
+<li>Params:启动任务时输入的参数类型</li>
+<li>Progress：后台执行过程中返回进度值的类型</li>
+<li>Result：后台执行完成后返返回的结果类型</li>
+</ul>
+<ol>
+<li>回调方法</li>
+</ol>
+<ul>
+<li>doInbackground：后台执行的任务，必须重写</li>
+<li>onPreExecute: 后台任务执行前，执行的任务，如，初始化</li>
+<li>onPostExecute: 后台执行后，自动执行的方法。并把后台的值返回与此</li>
+<li>onProgressUpdate: 在doInBackGround（）方法中调用publishprogress()，更新任务的执行进度</li>
+</ul>
+<ol>
+<li>方法的使用顺序<br>onPreExecute–doInBackGround(onProgressUpdate)–onPostExecute</li>
+<li>重写AsyncTask–MainActivity:MyAsyncTask task=new MyAsyncTask();–task.execute();<h3 id="案例学习"><a href="#案例学习" class="headerlink" title="案例学习"></a>案例学习</h3><h4 id="加载网络图片"><a href="#加载网络图片" class="headerlink" title="加载网络图片"></a>加载网络图片</h4><strong>异步任务中下载图片，主UI线程中设置图片</strong></li>
+</ol>
+<ul>
+<li>Image.xml—progressbar(visibility:gone)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</div><div class="line">    android:orientation=&quot;vertical&quot;</div><div class="line">    android:layout_width=&quot;match_parent&quot;</div><div class="line">    android:layout_height=&quot;match_parent&quot;&gt;</div><div class="line">&lt;ImageView</div><div class="line">android:layout_width=&quot;wrap_content&quot;</div><div class="line">android:layout_height=&quot;wrap_content&quot;</div><div class="line">android:layout_gravity=&quot;center&quot;</div><div class="line">android:id=&quot;@+id/im&quot;/&gt;</div><div class="line">&lt;ProgressBar</div><div class="line">android:layout_width=&quot;wrap_content&quot;</div><div class="line">android:layout_height=&quot;wrap_content&quot;</div><div class="line">android:layout_gravity=&quot;center&quot;</div><div class="line">android:visibility=&quot;gone&quot;</div><div class="line">android:id=&quot;@+id/pb&quot;/&gt;</div><div class="line">&lt;/LinearLayout&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>Image.java -extends Activity{<br>onCreate(声明控件，设置URL);</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">public class Image extends Activity &#123;</div><div class="line">    private ImageView mImage;</div><div class="line">    private ProgressBar mProgressBar;</div><div class="line">    //存入网络图片的地址链接</div><div class="line">    private String URL=</div><div class="line">     &quot;http://orfjxkwsz.bkt.clouddn.com/u=3264068453,1678066233&amp;fm=26&amp;gp=0.jpg&quot;;</div><div class="line">    @Override</div><div class="line">    //补充onCreate方法  设置image.xml视图</div><div class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">        super.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.image);</div><div class="line">       mImage=(ImageView)findViewById(R.id.im);</div><div class="line">        mProgressBar= (ProgressBar) findViewById(R.id.pb);</div><div class="line">      //在此使用MyAsyncTask</div><div class="line">        new Image.MyAsyncTask().execute(URL);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>—-内部类MyAsyncTask extends AysncTask;—加载}</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">//参数传入数值类型（URL），进度值类型，返回值类型（图片）</div><div class="line">    class MyAsyncTask extends AsyncTask&lt;String,Void,Bitmap&gt;&#123;</div><div class="line">    @Override</div><div class="line">    protected void onPreExecute() &#123;</div><div class="line">      super.onPreExecute();</div><div class="line">      mProgressBar.setVisibility(View.VISIBLE);//</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    protected void onPostExecute(Bitmap bitmap) &#123;</div><div class="line">        super.onPostExecute(bitmap);</div><div class="line">        mProgressBar.setVisibility(View.GONE);</div><div class="line">        mImage.setImageBitmap(bitmap);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>doInBackGround()从params中获取传递进来的参数–decodeStream方法解析输入流–将bitmap返回</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">@Override</div><div class="line">        //访问网络加载图片，后台操作，参数分别是传入的param数组</div><div class="line">        protected Bitmap doInBackground(String... params) &#123;</div><div class="line">            String url=params[0];//只传入了一个参数，即为第零位</div><div class="line">            Bitmap bitmap=null;//需要获取的图片对象</div><div class="line">            URLConnection connection;//访问网络</div><div class="line">            InputStream is;//输入数据</div><div class="line">            //导入URL包</div><div class="line">            try &#123;</div><div class="line">                connection=new URL(url).openConnection();</div><div class="line">                is=connection.getInputStream();//获取输入流</div><div class="line">                BufferedInputStream bis=new BufferedInputStream(is);</div><div class="line">                bitmap= BitmapFactory.decodeStream(bis);</div><div class="line">                is.close();</div><div class="line">                bis.close();</div><div class="line">                Thread.sleep(1000);</div><div class="line">            &#125; catch (IOException e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125; catch (InterruptedException e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line">        return bitmap;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>new Image.MyAsyncTask().execute(URL);//在image.java–Oncreate中</li>
+<li>Manifest.xml中加入</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&gt;</div><div class="line">&lt;activity android:name=&quot;.Image&quot;/&gt;</div></pre></td></tr></table></figure>
+<h4 id="异步效果"><a href="#异步效果" class="headerlink" title="异步效果"></a>异步效果</h4><p><img src="http://orfjxkwsz.bkt.clouddn.com/showTask.gif" alt="image"></p>
+<hr>
+<h4 id="大佬安利——-贝塞尔曲线布局"><a href="#大佬安利——-贝塞尔曲线布局" class="headerlink" title="大佬安利—— 贝塞尔曲线布局"></a>大佬安利—— 贝塞尔曲线布局</h4><p><a href="https://github.com/Gopoo/BezierRefreshLayout" target="_blank" rel="external">大佬的链接</a><br>compile ‘com.flyingstudio:bezierrefresh:1.0.1’<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">app:bezierBackground=&quot;@color/colorAccent&quot;</div><div class="line">app:bezierHeight=&quot;300dp&quot;</div><div class="line">app:refreshIcon=&quot;@mipmap/blank&quot;</div><div class="line"></div><div class="line">bezierScrollLayout.setScrollListener(new OnScrollListener() &#123;...&#125;</div><div class="line"> bezierScrollLayout.setRefreshing(false);</div></pre></td></tr></table></figure></p>
+<h4 id="volley加载图片"><a href="#volley加载图片" class="headerlink" title="volley加载图片"></a>volley加载图片</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">RequestQueue queue=Volley.newRequestQueue(MainActivity.this);</div><div class="line">                //(String url, Listener&lt;Bitmap&gt; listener, int maxWidth,</div><div class="line">                // int maxHeight, Config decodeConfig, ErrorListener errorListener)</div><div class="line">                ImageRequest imageRequest=new ImageRequest(&quot;http://orfjxkwsz.bkt.clouddn.com/avatar.png&quot;</div><div class="line">                        , new Response.Listener&lt;Bitmap&gt;() &#123;</div><div class="line">                    @Override</div><div class="line">                    public void onResponse(Bitmap bitmap) &#123;</div><div class="line">                    imageView.setImageBitmap(bitmap);</div><div class="line">                    &#125;</div><div class="line">                &#125;, 0, 0, Bitmap.Config.RGB_565, new Response.ErrorListener() &#123;</div><div class="line">                    @Override</div><div class="line">                    public void onErrorResponse(VolleyError volleyError) &#123;</div><div class="line">                     imageView.setImageResource(R.mipmap.ic_launcher);</div><div class="line">                    &#125;</div><div class="line">                &#125;);</div><div class="line">                queue.add(imageRequest);&#125;</div></pre></td></tr></table></figure>
+<h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p><img src="http://orfjxkwsz.bkt.clouddn.com/showBezier.gif" alt="image"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;利用AsncTask可以实现异步任务&quot;&gt;&lt;a href=&quot;#利用AsncTask可以实现异步任务&quot; class=&quot;headerlink&quot; title=&quot;利用AsncTask可以实现异步任务&quot;&gt;&lt;/a&gt;利用AsncTask可以实现异步任务&lt;/h2&gt;&lt;h3 id=&quot;问
+    
+    </summary>
+    
+    
+      <category term="Android AsyncTask" scheme="http://w.unfamous.cn/tags/Android-AsyncTask/"/>
+    
+  </entry>
   
   <entry>
     <title>读书--与贤人对话</title>

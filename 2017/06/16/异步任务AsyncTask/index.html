@@ -7,17 +7,22 @@
   
   
   
-  <title>Hexo</title>
+  <title>异步任务AsyncTask | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="����ѧϰ�����Ͻ���">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://w.unfamous.cn/index.html">
+  <meta name="description" content="利用AsncTask可以实现异步任务问题引入：Android是单线程模型，要把耗时操作放到非主线程中执行线程,线程池可以来实现，现用一个封装好的异步操作AsyncTask来简化实现异步任务。 使用方法 子类参数(泛型）：   Params:启动任务时输入的参数类型 Progress：后台执行过程中返回进度值的类型 Result：后台执行完成后返返回的结果类型   回调方法   doInbackgr">
+<meta name="keywords" content="Android AsyncTask">
+<meta property="og:type" content="article">
+<meta property="og:title" content="异步任务AsyncTask">
+<meta property="og:url" content="http://w.unfamous.cn/2017/06/16/异步任务AsyncTask/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="����ѧϰ�����Ͻ���">
+<meta property="og:description" content="利用AsncTask可以实现异步任务问题引入：Android是单线程模型，要把耗时操作放到非主线程中执行线程,线程池可以来实现，现用一个封装好的异步操作AsyncTask来简化实现异步任务。 使用方法 子类参数(泛型）：   Params:启动任务时输入的参数类型 Progress：后台执行过程中返回进度值的类型 Result：后台执行完成后返返回的结果类型   回调方法   doInbackgr">
+<meta property="og:image" content="http://orfjxkwsz.bkt.clouddn.com/showTask.gif">
+<meta property="og:image" content="http://orfjxkwsz.bkt.clouddn.com/showBezier.gif">
+<meta property="og:updated_time" content="2017-06-16T14:28:02.098Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="����ѧϰ�����Ͻ���">
+<meta name="twitter:title" content="异步任务AsyncTask">
+<meta name="twitter:description" content="利用AsncTask可以实现异步任务问题引入：Android是单线程模型，要把耗时操作放到非主线程中执行线程,线程池可以来实现，现用一个封装好的异步操作AsyncTask来简化实现异步任务。 使用方法 子类参数(泛型）：   Params:启动任务时输入的参数类型 Progress：后台执行过程中返回进度值的类型 Result：后台执行完成后返返回的结果类型   回调方法   doInbackgr">
+<meta name="twitter:image" content="http://orfjxkwsz.bkt.clouddn.com/showTask.gif">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -29,9 +34,6 @@
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   
-    
-    
-  
   
       <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
   
@@ -42,8 +44,8 @@
       var yiliaConfig = {
           fancybox: true,
           animate: true,
-          isHome: true,
-          isPost: false,
+          isHome: false,
+          isPost: true,
           isArchive: false,
           isTag: false,
           isCategory: false,
@@ -240,9 +242,7 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-异步任务AsyncTask" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-异步任务AsyncTask" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a  href="/2017/06/16/异步任务AsyncTask/" class="article-date">
@@ -259,13 +259,24 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/06/16/异步任务AsyncTask/">异步任务AsyncTask</a>
+    <h1 class="article-title" itemprop="name">
+      异步任务AsyncTask
     </h1>
   
 
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-AsyncTask/">Android AsyncTask</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -321,355 +332,149 @@
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-AsyncTask/">Android AsyncTask</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a  href="/2017/06/16/异步任务AsyncTask/">异步任务AsyncTask</a></p>
+        <p><span>文章作者:</span><a  href="/" title="访问 perhapsru 的个人博客">perhapsru</a></p>
+        <p><span>发布时间:</span>2017年06月16日 - 22时25分</p>
+        <p><span>最后更新:</span>2017年06月16日 - 22时28分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/06/16/异步任务AsyncTask/" title="异步任务AsyncTask">http://w.unfamous.cn/2017/06/16/异步任务AsyncTask/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://w.unfamous.cn/2017/06/16/异步任务AsyncTask/　　作者: perhapsru" title=""></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a  href="/2017/06/14/读书-与贤人对话/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">读书--与贤人对话</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
   
 </article>
 
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#利用AsncTask可以实现异步任务"><span class="toc-number">1.</span> <span class="toc-text">利用AsncTask可以实现异步任务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题引入："><span class="toc-number">1.1.</span> <span class="toc-text">问题引入：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用方法"><span class="toc-number">1.2.</span> <span class="toc-text">使用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#案例学习"><span class="toc-number">1.3.</span> <span class="toc-text">案例学习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#加载网络图片"><span class="toc-number">1.3.1.</span> <span class="toc-text">加载网络图片</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#异步效果"><span class="toc-number">1.3.2.</span> <span class="toc-text">异步效果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#大佬安利——-贝塞尔曲线布局"><span class="toc-number">1.3.3.</span> <span class="toc-text">大佬安利—— 贝塞尔曲线布局</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#volley加载图片"><span class="toc-number">1.3.4.</span> <span class="toc-text">volley加载图片</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#效果图"><span class="toc-number">1.4.</span> <span class="toc-text">效果图</span></a></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
 
 
 
 
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 
 
 
 
-
-
-  
-    <article id="post-读书-与贤人对话" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/06/14/读书-与贤人对话/" class="article-date">
-      <time datetime="2017-06-14T11:03:59.000Z" itemprop="datePublished">2017-06-14</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy" />
+        <section class="changyan" id="comments">
+  <!--<div id="uyan_frame"></div>-->
+  <div id="SOHUCS"></div>
+  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+  <script type="text/javascript">
+    window.changyan.api.config({
+      appid: 'xxxx',
+      conf: 'xxxxxxxxx'
+    });
+  </script>
+</section>
     
-    
-      <header class="article-header">
+
+
+
+    <div class="scroll" id="post-nav-button">
         
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/06/14/读书-与贤人对话/">读书--与贤人对话</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h3 id="王蒙-生命健康的三个标准"><a href="#王蒙-生命健康的三个标准" class="headerlink" title="王蒙  生命健康的三个标准"></a>王蒙  生命健康的三个标准</h3><ul>
-<li>1.不因嫉妒而失去本身的善良</li>
-<li>2.明朗:而不是自大与自我为中心</li>
-<li>3.理性与自我控制<h3 id="西方的秦皇汉武——凯撒大帝"><a href="#西方的秦皇汉武——凯撒大帝" class="headerlink" title="西方的秦皇汉武——凯撒大帝"></a>西方的秦皇汉武——凯撒大帝</h3></li>
-<li>2200年前剖腹产出生的凯撒大帝Caesar 千古一帝(虽然他并没有称帝)</li>
-<li>他的大权之路:乱世出英雄，拉拢人心站稳脚跟，联合强权，扩张领土达到前无古人的功勋</li>
-<li>与庞培政治斗争，回顾自己的优异战绩用傲娇的“3V“来描述。拉丁原文“VENI,VIDI,VICI“，英文“I came,I saw,I conquerd“来到，看到，征服。霸气的三个单词，跪碎了古往今来不知多少景仰之膝啊！以至于我每次比划剪刀手也觉得特别佩服啊！</li>
-<li>他的惊人才能:能打仗，能演讲。政治，军事，文学功底无人能及。July七月的来源，他的名字甚至成了皇帝的代名词。基督有言“Render to Casear the things that are Casear’s,and to God the things that are God’s“——凯撒的归凯撒，上帝的归上帝。甚至成为当时人们心中可以与上帝比肩的人物</li>
-<li>他的横死:自古丰功伟绩的卓越领导者，大多不得善终甚至横死暴尸。刺客一拥而上刀剑齐落。一人一刀的死法，结束了这个伟大英雄的光辉。被刺之后古罗马由共和走向了帝制。</li>
-<li>短短的一篇介绍就让人佩服得五体投地，罗马文明名不虚传<h3 id="王小波-如何诚实地生活"><a href="#王小波-如何诚实地生活" class="headerlink" title="王小波  如何诚实地生活"></a>王小波  如何诚实地生活</h3></li>
-<li>任思想在岁月里绽放，由生灵于岁月里沉浮，电台里纪念着王小波的去世</li>
-<li>诚实与虚伪之间-浮嚣(现实中，多的不是诚实与虚伪，而是那些只肯承认部分事实的浮嚣的人)  </li>
-<li>利人悖论:如果有一天都来帮助别人，那谁来接受帮助呢，“人都利人，利归何人“</li>
-<li>充满乐趣的生活，对比于卑下肮脏的生活。“做爱做的事才是生活“，总有人说，人随着长大会慢慢向生活投降，而王小波说，“我会一直战斗到死“</li>
-<li>仅有一次的人生，为什么不做自己喜欢的事！<br>在我心里王小波就是那样一个固执的一心埋头写作的人，在别人认为枯燥无聊的东西，享受着自己写作的乐趣，在这个纷乱的人世间能够坚持自己的热爱努力走下去的绝不是凡人啊！<h3 id="石康-不奋斗的姑娘我不爱"><a href="#石康-不奋斗的姑娘我不爱" class="headerlink" title="石康  不奋斗的姑娘我不爱"></a>石康  不奋斗的姑娘我不爱</h3></li>
-<li>自私冷酷只知道接受别人对你的好，那就是对别人的不好。</li>
-<li>被爱与爱人，是不可分割的共同体。推己及人，人生爱恋朋友亲人都离不开分享，我们在一起，不是为了一起懒惰，而是因为两个彼此吸引的灵魂渴望着互相倾诉一起努力使每个人都成为更好的自己。</li>
-<li>幸福也许就是，人生路上有志同道合的灵魂共舞，每天醒来都有明确的目标，和成长的满足吧。</li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/life/">life</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ListView之BaseAdapter总结" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/06/13/ListView之BaseAdapter总结/" class="article-date">
-      <time datetime="2017-06-13T07:21:06.000Z" itemprop="datePublished">2017-06-13</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/06/13/ListView之BaseAdapter总结/">ListView之BaseAdapter总结</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="总结listview适配器Baseadapter"><a href="#总结listview适配器Baseadapter" class="headerlink" title="总结listview适配器Baseadapter"></a>总结listview适配器Baseadapter</h2><p>先吐槽一下自己，真真个可怕呀，说要学会listview结果半个月了，才….</p>
-<p>####Baseadapter基本介绍</p>
-<ul>
-<li>listview需要把数据和视图结合在一起，Baseadapter便于重写</li>
-<li>为了有效的利用到视图convertview的视图缓存机制，减少频繁调用findViewById，使用ViewHolder绑定数据而使用到setTag方法</li>
-<li>重写方法：getCount(列表中多少行),getItem(位置上的对象),getItemId(位置行号),getView(每行的内容)<h4 id="基本步骤："><a href="#基本步骤：" class="headerlink" title="基本步骤："></a>基本步骤：</h4>设置布局–设置适配器–设置数据源–加载适配器</li>
-<li>tips:列表控件封装到Itemtips类里面，构造函数</li>
-<li>viewholder static类，适配器绑定数据源，根据上下文加载布局</li>
-<li>getView的写法:添加viewhoder、判断convertview是否空：是，LayoutInflater绑定Item视图，holder添加控件id，setTag；不是空，获取缓存标签getTag、返回convertview<h4 id="具体代码："><a href="#具体代码：" class="headerlink" title="具体代码："></a>具体代码：</h4>封装Item控件<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">public class ItemTip &#123;</div><div class="line">    public int ItemtipID;</div><div class="line">    public String Itemtitle;</div><div class="line"></div><div class="line">    public ItemTip(int itemtipID, String itemtitle) &#123;</div><div class="line">        Itemtitle = itemtitle;</div><div class="line">        ItemtipID = itemtipID;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>MainActivity</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">public class MainActivity extends AppCompatActivity &#123;</div><div class="line">    private ListView listView;</div><div class="line"> @Override</div><div class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">        super.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        listView= (ListView) findViewById(R.id.lv);</div><div class="line">        //创建适配器</div><div class="line">        //创建数据源getdata()，加载适配器</div><div class="line">        List&lt;ItemTip&gt;data=new ArrayList&lt;&gt;();</div><div class="line">        for(int i=0;i&lt;20;i++)&#123;</div><div class="line">            data.add(new ItemTip(R.mipmap.ic_launcher,&quot;this is&quot;+i+&quot;item&quot;));</div><div class="line">        &#125;</div><div class="line">        MyAdapter adapter=new MyAdapter(this,data);</div><div class="line">        //视图加载适配器</div><div class="line">        listView.setAdapter(adapter);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>MyAdapter</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">public class MyAdapter extends BaseAdapter &#123;</div><div class="line">    private Context context;</div><div class="line">    private LayoutInflater inflater=null;</div><div class="line">    private  List&lt;ItemTip&gt;mlist;</div><div class="line">    public MyAdapter(Context context,List&lt;ItemTip&gt;list) &#123; //添加构造函数,绑定数据源</div><div class="line">        mlist=list;</div><div class="line">        this.inflater=LayoutInflater.from(context);//根据上下文加载布局</div><div class="line">   &#125;</div><div class="line">    @Override</div><div class="line">    public int getCount() &#123;</div><div class="line">        return mlist.size();</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public Object getItem(int i) &#123;</div><div class="line">        return mlist.get(i);</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public long getItemId(int i) &#123;</div><div class="line">        return i;</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public View getView(int i, View convertView, ViewGroup viewGroup) &#123;</div><div class="line">        ViewHolder holder;</div><div class="line">        if(convertView==null)&#123;</div><div class="line">        holder=new ViewHolder();</div><div class="line">        convertView=inflater.inflate(R.layout.item,null);</div><div class="line">        holder.title= (TextView) convertView.findViewById(R.id.tv);</div><div class="line">        holder.picture= (ImageView) convertView.findViewById(R.id.iv);</div><div class="line">        convertView.setTag(holder);</div><div class="line">        &#125;else&#123;</div><div class="line">            holder= (ViewHolder) convertView.getTag();//</div><div class="line">        &#125;</div><div class="line">        ItemTip tip=mlist.get(i);</div><div class="line">        holder.picture.setImageResource(tip.ItemtipID);</div><div class="line">        holder.title.setText(tip.Itemtitle);</div><div class="line">        return convertView;</div><div class="line">    &#125;</div><div class="line">   static class ViewHolder&#123;</div><div class="line">        ImageView picture;</div><div class="line">        TextView title;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>效果图<br><img src="http://orfjxkwsz.bkt.clouddn.com/%E5%91%9C%E5%91%9C%E5%91%9C.jpg" alt="这里写图片描述"></p>
-<p>遗留问题：hashmap里的键值对，可否都用模板类代替</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-关于命令行" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/06/12/关于命令行/" class="article-date">
-      <time datetime="2017-06-12T04:50:30.000Z" itemprop="datePublished">2017-06-12</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/06/12/关于命令行/">关于命令行</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="win10右击没有新建，没有gitbash"><a href="#win10右击没有新建，没有gitbash" class="headerlink" title="win10右击没有新建，没有gitbash"></a>win10右击没有新建，没有gitbash</h2><h3 id="问题引入：在搭建博客的时候发现右击突然没有“新建”文件夹了，也没有“gitbash”命令行，天哪好可怕，我坚决不想一遍一遍的使用命令行cd到对应的文件夹，再用md命令创建，那真的简直不要再心塞…"><a href="#问题引入：在搭建博客的时候发现右击突然没有“新建”文件夹了，也没有“gitbash”命令行，天哪好可怕，我坚决不想一遍一遍的使用命令行cd到对应的文件夹，再用md命令创建，那真的简直不要再心塞…" class="headerlink" title="问题引入：在搭建博客的时候发现右击突然没有“新建”文件夹了，也没有“gitbash”命令行，天哪好可怕，我坚决不想一遍一遍的使用命令行cd到对应的文件夹，再用md命令创建，那真的简直不要再心塞…"></a>问题引入：在搭建博客的时候发现右击突然没有“新建”文件夹了，也没有“gitbash”命令行，天哪好可怕，我坚决不想一遍一遍的使用命令行cd到对应的文件夹，再用md命令创建，那真的简直不要再心塞…</h3><h3 id="问题解决：修改注册表。"><a href="#问题解决：修改注册表。" class="headerlink" title="问题解决：修改注册表。"></a>问题解决：修改注册表。</h3><h3 id="基本步骤："><a href="#基本步骤：" class="headerlink" title="基本步骤："></a>基本步骤：</h3><h4 id="1-添加新建"><a href="#1-添加新建" class="headerlink" title="1.添加新建"></a>1.添加新建</h4><ul>
-<li>Windows + R 打开命令行：cmd regedit<br><img src="http://orfjxkwsz.bkt.clouddn.com/1%20.png" alt="image"></li>
-</ul>
-<ul>
-<li>打开注册表编辑窗口，展开HKEY_CLASSES_ROOT<br><img src="http://orfjxkwsz.bkt.clouddn.com/2.png" alt="image"></li>
-<li>HKEY_CLASSES_ROOT展开项中找到：Directory，再依次展开：DirectoryBackgroundshellexContextMenuHandlers，在ContextMenuHandlers展开项找到：New，左键单击：New <img src="http://orfjxkwsz.bkt.clouddn.com/3%20.png" alt="image"></li>
-<li>在New对应的右侧窗口，左键双击：默认，在弹出的编辑字符串的对话框中，把数值数据更改为：{D969A300-E7FF-11d0-A93B-00A0C90F2719}，再点击：确定</li>
-</ul>
-<p><img src="http://orfjxkwsz.bkt.clouddn.com/4%20.png" alt="image"></p>
-<ul>
-<li>此时，右击鼠标，就会出现新建选项了。<h3 id="2-添加gitbash"><a href="#2-添加gitbash" class="headerlink" title="2.添加gitbash"></a>2.添加gitbash</h3></li>
-<li>同样用cmd regedit命令打开注册表，找到[HKEY_CLASSES_ROOT\Directory\Background]。</li>
-<li>在[Background]下如果没有[shell],则右键-新建项[shell]。</li>
-<li>在[shell]下右键-新建项[open in Git],其值为“Git Bash Here”,此为右键菜单显示名称。</li>
-<li>在[shell]下右键-新建-字符串值[Icon],双击编辑，其值为“D:\Tools\VersonCtrs\Git\Git\mingw64\share\git\git-for-windows.ico”。此为菜单加图标。</li>
-<li>在[open in git]下右键-新建-项[command],其值为”D:\Tools\VersonCtrs\Git\Git\bin\bash.exe” –login -i。(路径是自己电脑上的存储路径)</li>
-<li>步骤如下图：<br><img src="http://orfjxkwsz.bkt.clouddn.com/5%20.png" alt="image"></li>
-</ul>
-<ul>
-<li><img src="http://orfjxkwsz.bkt.clouddn.com/6%20.png" alt="image"><h3 id="这下，又可以愉快地玩耍了"><a href="#这下，又可以愉快地玩耍了" class="headerlink" title="这下，又可以愉快地玩耍了~~"></a>这下，又可以愉快地玩耍了~~</h3>小补充<br>1.改变命令行的默认路径<br>开始-命令标识符（右击）-属性-快捷方式-起始位置-确定</li>
-</ul>
-<p>2.执行ping命令时：不是内部或者外部命令<br>我的电脑-右击属性-高级系统设置-环境变量-找到PING命令所在文件夹即可。</p>
-<p>3.命令行无法执行npm<br>重装node.js最省事。更改路径容易改错</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tips/">tips</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-复习一" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/06/12/复习一/" class="article-date">
-      <time datetime="2017-06-12T03:09:09.000Z" itemprop="datePublished">2017-06-12</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+            <a  href="/2017/06/14/读书-与贤人对话/" title="下一篇: 读书--与贤人对话">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/06/12/复习一/">复习一</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="swiperefreshlayout"><a href="#swiperefreshlayout" class="headerlink" title="swiperefreshlayout"></a>swiperefreshlayout</h2><ul>
-<li>下拉刷新</li>
-<li>swipe.setBackgroundColor(000000);//设置背景颜色</li>
-<li>swipe.setColorSchemeResources(android.R.color.darker_gray);//设置旋转颜色</li>
-<li>swipe.setOnRefreshListener//设置监听事件</li>
-<li>swipe.setRefreshing(false);//设置刷新后停止<h2 id="Picasso"><a href="#Picasso" class="headerlink" title="Picasso"></a>Picasso</h2></li>
-<li>加载图片</li>
-<li>导包： compile ‘com.squareup.picasso:picasso:2.5.2’</li>
-<li>Picasso.with(MainActivity.this).load(“URL 图片链接”).into(image);<h2 id="popupwindow"><a href="#popupwindow" class="headerlink" title="popupwindow"></a>popupwindow</h2></li>
-<li><p>showpopupwindow();//显示popupwindow界面，简化代码，在外面写函数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">private  void showpopupwindow()&#123;//在此处定义popupwindow的实体</div><div class="line">       //设置contentView 显示内容     layoutinflater的用法</div><div class="line">       View contentView= LayoutInflater.</div><div class="line">               from(MainActivity.this).inflate(R.layout.popuplayout,null);</div><div class="line">               //把popupwindow的视图转到当前视图上</div><div class="line">       popupWindow = new PopupWindow(contentView,</div><div class="line">               LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, true);</div><div class="line">      // popupWindow=new PopupWindow(contentView, LAYOUT_INFLATER_SERVICE, LayoutParams.WRAP_CONTENT,true);</div><div class="line">       //public PopupWindow(View contentView, int width, int height, boolean focusable)</div><div class="line">       popupWindow.setContentView(contentView);//设置响应,绑定文本和点击事件</div><div class="line">       init();</div><div class="line">       one.setOnClickListener(this);</div><div class="line">       three.setOnClickListener(this);</div><div class="line">       four.setOnClickListener(this);</div><div class="line">       //显示popupwindow</div><div class="line">       View rootview=LayoutInflater.from(MainActivity.this).inflate(R.layout.activity_main,null);</div><div class="line">       popupWindow.showAtLocation(rootview, Gravity.BOTTOM,0,0);</div><div class="line">       //public void showAtLocation(View parent, int gravity, int x, int y)</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>在另一个activity里面写点击之后的视图</p>
-</li>
-<li>View popupView = getLayoutInflater().inflate(R.layout.popuplayout, null);</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">mPopupWindow = new PopupWindow(popupView, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, true);</div><div class="line">mPopupWindow.setTouchable(true);</div><div class="line">mPopupWindow.setOutsideTouchable(true);</div><div class="line">//mPopupWindow.setBackgroundDrawable(new BitmapDrawable(getResources(), (Bitmap) null));</div><div class="line">mButton = (Button) findViewById(R.id.popbt);</div><div class="line">mButton.setOnClickListener(new View.OnClickListener() &#123;</div><div class="line">    @Override</div><div class="line">    public void onClick(View view) &#123;</div><div class="line">        mPopupWindow.showAsDropDown(view);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-
-      
     </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/06/16/异步任务AsyncTask/">异步任务AsyncTask</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/14/读书-与贤人对话/">读书--与贤人对话</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/13/ListView之BaseAdapter总结/">ListView之BaseAdapter总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/12/关于命令行/">关于命令行</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/12/复习一/">复习一</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
 
 
 
 
-
-  
-  
+    <script>
+        
+    </script>
 
 </div>
       <footer id="footer">
